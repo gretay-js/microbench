@@ -1,0 +1,22 @@
+(lang dune 1.6)
+
+(env
+ (standard
+  (ocamlopt_flags (:standard -S))
+  (c_flags (:standard -save-temps))
+  )
+
+ (lzcnt
+  (ocamlopt_flags (:standard -S -flzcnt))
+  (c_flags (:standard -save-temps -mlzcnt))
+  )
+
+ (popcnt
+  (ocamlopt_flags (:standard -S -fpopcnt))
+  (c_flags (:standard -save-temps -mpopcnt))
+  )
+)
+
+(context (opam (switch dev) (name standard) (profile standard)))
+(context (opam (switch dev) (name lzcnt) (profile lzcnt)))
+(context (opam (switch dev) (name popcnt) (profile popcnt)))

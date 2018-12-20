@@ -1,0 +1,25 @@
+(library
+ (name clz_bench)
+ (modules clz)
+ (library_flags -linkall)
+ (c_names clz_stubs)
+ (libraries base)
+ (preprocess (pps ppx_bench)))
+
+(executable
+ (name clz_main)
+ (modules clz_main)
+ (libraries clz_bench core_bench.inline_benchmarks))
+
+(library
+ (name popcnt_bench)
+ (modules popcnt)
+ (library_flags -linkall)
+ (c_names popcnt_stubs)
+ (libraries base)
+ (preprocess (pps ppx_bench)))
+
+(executable
+ (name popcnt_main)
+ (modules popcnt_main)
+ (libraries popcnt_bench core_bench.inline_benchmarks))
