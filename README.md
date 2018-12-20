@@ -5,7 +5,7 @@
 - perfmon: performance monitoring
 
 ## Compare performance
-1) intrisics: emit the instruction directly in native compilation
+1) intrinsics: emit the instruction directly in native compilation
 2) call C stubs that invoke the
 corresponding C compile intrinsics or inline assembly.
 
@@ -97,11 +97,14 @@ Added in https://github.com/ocaml/dune/pull/1700
 
 ## How to setup the experimental compiler?
 
+```
 opam switch create dev --empty
 opam pin add ocaml-variants.4.07.1+dev <path-to-experimental-compiler>
-opam install dune core core_extended core_bench
+opam install dune core core_extended core_bench ...
+```
 
 Point <path-to-experimental-compiler> to local directory or git repository#branch.
+
 The opam file should contain something like this:
 
 ```
