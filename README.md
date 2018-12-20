@@ -104,6 +104,7 @@ opam install dune core core_extended core_bench
 Point <path-to-experimental-compiler> to local directory or git repository#branch.
 The opam file should contain something like this:
 
+```
 opam-version: "2.0"
 name: "ocaml-variants"
 version: "4.07.1+dev"
@@ -125,5 +126,6 @@ build: [
   [make "-j4" "world.opt"]
 ]
 install: [make "install"]
+```
 
 Note the version numbering schema to make it work.
