@@ -88,7 +88,7 @@ Estimated testing time 14s (14 benchmarks x 1s). Change using -quota SECS.
 
 ## Which dune version to use?
 
-Requries support for of c_flags and cxx_flags in profile definitions
+Requries support for of c_flags in profile definitions
 with env, see dune-workspace.
 Added in https://github.com/ocaml/dune/pull/1700
 
