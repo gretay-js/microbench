@@ -23,7 +23,6 @@ On Intel(R) Xeon(R) Gold 6144 CPU @ 3.50GHz
 GenuinIntel-6-55
 ```
 standard clz
-Warning: X_LIBRARY_INLINING is not set to true, benchmarks may be inaccurate.
 Estimated testing time 14s (14 benchmarks x 1s). Change using -quota SECS.
 ┌─────────────────────────────────────┬──────────┬────────────────┬──────────┬──────────┬────────────┐
 │ Name                                │ Time/Run │        mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
@@ -44,7 +43,6 @@ Estimated testing time 14s (14 benchmarks x 1s). Change using -quota SECS.
 │ [clz.ml] stub_nativeint_unboxed_tag │  48.16ms │         -0.21w │   -2.46w │   -2.46w │     97.14% │
 └─────────────────────────────────────┴──────────┴────────────────┴──────────┴──────────┴────────────┘
 lzcnt clz
-Warning: X_LIBRARY_INLINING is not set to true, benchmarks may be inaccurate.
 Estimated testing time 14s (14 benchmarks x 1s). Change using -quota SECS.
 ┌─────────────────────────────────────┬──────────┬────────────────┬──────────┬──────────┬────────────┐
 │ Name                                │ Time/Run │        mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
@@ -65,7 +63,6 @@ Estimated testing time 14s (14 benchmarks x 1s). Change using -quota SECS.
 │ [clz.ml] stub_nativeint_unboxed_tag │  43.10ms │         -0.17w │   -1.92w │   -1.92w │     89.41% │
 └─────────────────────────────────────┴──────────┴────────────────┴──────────┴──────────┴────────────┘
 popcnt popcnt
-Warning: X_LIBRARY_INLINING is not set to true, benchmarks may be inaccurate.
 Estimated testing time 14s (14 benchmarks x 1s). Change using -quota SECS.
 ┌────────────────────────────────────────┬──────────┬────────────────┬──────────┬──────────┬────────────┐
 │ Name                                   │ Time/Run │        mWd/Run │ mjWd/Run │ Prom/Run │ Percentage │
