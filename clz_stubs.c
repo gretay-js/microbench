@@ -105,7 +105,7 @@ CAMLprim int stub_int32_clz_unboxed(int32_t v)
 { return wrap_int32_clz((uint32_t) v); }
 
 CAMLprim value stub_int32_clz_unboxed_tag(int32_t v)
-{ return Val_long(stub_int32_clz_unboxed(v)); }
+{ return Val_long(wrap_int32_clz((uint32_t) v)); }
 
 CAMLprim value stub_int32_clz(value v1)
 { return Val_long(wrap_int32_clz((uint32_t)Int32_val(v1))); }
@@ -114,7 +114,7 @@ CAMLprim int stub_int64_clz_unboxed(int64_t v)
 { return wrap_int64_clz((uint64_t) v); }
 
 CAMLprim int stub_int64_clz_unboxed_tag(int64_t v)
-{ return Val_long(stub_int64_clz_unboxed(v)); }
+{ return Val_long(wrap_int64_clz((uint64_t) v)); }
 
 CAMLprim value stub_int64_clz(value v1)
 { return Val_long(wrap_int64_clz((uint64_t) Int64_val(v1))); }
@@ -129,8 +129,13 @@ CAMLprim int stub_nativeint_clz_unboxed(intnat v)
 }
 
 CAMLprim int stub_nativeint_clz_unboxed_tag(intnat v)
-{ return Val_long(stub_nativeint_clz_unboxed(v)); }
-
+{
+#ifdef ARCH_SIXTYFOUR
+  return Val_long(wrap_int64_clz((uint64_t) v));
+#else
+  return Val_long(wrap_int32_clz((uint32_t) v));
+#endif
+}
 
 CAMLprim value stub_nativeint_clz(value v1)
 {

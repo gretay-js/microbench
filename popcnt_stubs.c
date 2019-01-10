@@ -72,7 +72,7 @@ CAMLprim int stub_int32_popcnt_unboxed(int32_t v)
 { return int32_popcnt((uint32_t) v); }
 
 CAMLprim value stub_int32_popcnt_unboxed_tag(int32_t v)
-{ return Val_long(stub_int32_popcnt_unboxed(v)); }
+{ return Val_long(int32_popcnt((uint32_t) v)); }
 
 CAMLprim value stub_int32_popcnt(value v1)
 { return Val_long(int32_popcnt((uint32_t) (Int32_val(v1)))); }
@@ -81,7 +81,7 @@ CAMLprim int stub_int64_popcnt_unboxed(int64_t v)
 { return int64_popcnt((uint64_t) v); }
 
 CAMLprim int stub_int64_popcnt_unboxed_tag(int64_t v)
-{ return Val_long(stub_int64_popcnt_unboxed(v)); }
+{ return Val_long(int64_popcnt((uint64_t) v)); }
 
 CAMLprim value stub_int64_popcnt(value v1)
 { return Val_long(int64_popcnt((uint64_t) (Int64_val(v1)))); }
@@ -96,7 +96,13 @@ CAMLprim int stub_nativeint_popcnt_unboxed(intnat v)
 }
 
 CAMLprim int stub_nativeint_popcnt_unboxed_tag(intnat v)
-{ return Val_long(stub_nativeint_popcnt_unboxed(v)); }
+{
+#ifdef ARCH_SIXTYFOUR
+  return Val_long(int64_popcnt((uint64_t) v));
+#else
+  return Val_long(int32_popcnt((uint32_t) v));
+#endif
+}
 
 CAMLprim value stub_nativeint_popcnt(value v1)
 {
