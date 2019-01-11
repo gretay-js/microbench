@@ -113,9 +113,9 @@ popcnt popcnt
   For example, int64->int is faster than int64-int64
   for both clz variants and popcnt.
 
-- Some questions and answers
+### Some questions and answers
 
-  -- why is there such a difference between bsr and lzcnt?
+  - why is there such a difference between bsr and lzcnt?
   They have the same latence, throughput, and ports on our
   benchmarking machine, but lzcnt appears to be 2-3x faster
   in our experiments.
@@ -123,16 +123,16 @@ popcnt popcnt
   (alignment).
   does not make any difference to this phenomenon.
 
--- why is int32 intrinsic slower than 64 bit version?
+- why is int32 intrinsic slower than 64 bit version?
   The 32bit version on 64bit machine needs to extend the 32bit input
   value before passing it to clz and then adjut the result.
 
--- why is there a difference between int64 and nativeint clz? This
+- why is there a difference between int64 and nativeint clz? This
   happens with both bsr and with lzcnt?
   The generated code is the same, other than explicit locations,
   and the alignment is similar.
 
--- why is there virtually no different between clz int->int
+- why is there virtually no different between clz int->int
   intrinisic, while there is a difference for other types?
 
 ## Which dune version to use?
@@ -182,3 +182,8 @@ install: [make "install"]
 ```
 
 Note the version numbering schema to make it work.
+This is work in progress. It's a bit hard to build at the moment.
+The benchmarks itself can be compiled with this following version:
+https://github.com/gretay-js/ocaml/tree/clz-popcnt-rev5
+but it needs to be backported to 4.07.1 to work with ppx.
+
