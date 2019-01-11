@@ -101,7 +101,7 @@ CAMLprim value stub_int_clz(value v1)
 #endif
 }
 
-CAMLprim int stub_int32_clz_unboxed(int32_t v)
+CAMLprim int32_t stub_int32_clz_unboxed(int32_t v)
 { return wrap_int32_clz((uint32_t) v); }
 
 CAMLprim value stub_int32_clz_unboxed_tag(int32_t v)
@@ -110,16 +110,16 @@ CAMLprim value stub_int32_clz_unboxed_tag(int32_t v)
 CAMLprim value stub_int32_clz(value v1)
 { return Val_long(wrap_int32_clz((uint32_t)Int32_val(v1))); }
 
-CAMLprim int stub_int64_clz_unboxed(int64_t v)
+CAMLprim int64_t stub_int64_clz_unboxed(int64_t v)
 { return wrap_int64_clz((uint64_t) v); }
 
-CAMLprim int stub_int64_clz_unboxed_tag(int64_t v)
+CAMLprim value stub_int64_clz_unboxed_tag(int64_t v)
 { return Val_long(wrap_int64_clz((uint64_t) v)); }
 
 CAMLprim value stub_int64_clz(value v1)
 { return Val_long(wrap_int64_clz((uint64_t) Int64_val(v1))); }
 
-CAMLprim int stub_nativeint_clz_unboxed(intnat v)
+CAMLprim intnat stub_nativeint_clz_unboxed(intnat v)
 {
 #ifdef ARCH_SIXTYFOUR
   return wrap_int64_clz((uint64_t) v);
@@ -128,7 +128,7 @@ CAMLprim int stub_nativeint_clz_unboxed(intnat v)
 #endif
 }
 
-CAMLprim int stub_nativeint_clz_unboxed_tag(intnat v)
+CAMLprim value stub_nativeint_clz_unboxed_tag(intnat v)
 {
 #ifdef ARCH_SIXTYFOUR
   return Val_long(wrap_int64_clz((uint64_t) v));
@@ -144,4 +144,10 @@ CAMLprim value stub_nativeint_clz(value v1)
 #else
   return Val_long(wrap_int32_clz((uint32_t) Int32_val(v1)));
 #endif
+}
+
+
+CAMLprim int stub_never(int v)
+{
+  return 0;
 }

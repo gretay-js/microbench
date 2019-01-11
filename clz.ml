@@ -9,11 +9,11 @@ external stub_int64_clz : int64 -> int = "stub_int64_clz" [@@noalloc]
 external stub_nativeint_clz : nativeint -> int = "stub_nativeint_clz" [@@noalloc]
 
 external stub_int32_clz_unboxed: int32 -> int32
-  = "stub_int32_clz" "stub_int32_clz_unboxed" [@@unboxed] [@@noalloc]
+  = "stub_never" "stub_int32_clz_unboxed" [@@unboxed] [@@noalloc]
 external stub_int64_clz_unboxed: int64 -> int64
-  = "stub_int64_clz" "stub_int64_clz_unboxed" [@@unboxed] [@@noalloc]
+  = "stub_never" "stub_int64_clz_unboxed" [@@unboxed] [@@noalloc]
 external stub_nativeint_clz_unboxed: nativeint -> nativeint
-  = "stub_nativeint_clz" "stub_nativeint_clz_unboxed" [@@unboxed] [@@noalloc]
+  = "stub_never" "stub_nativeint_clz_unboxed" [@@unboxed] [@@noalloc]
 
 external stub_int32_clz_unboxed_tag: (int32[@unboxed])-> int
   = "stub_int32_clz" "stub_int32_clz_unboxed_tag" [@@noalloc]

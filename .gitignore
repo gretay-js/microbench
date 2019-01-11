@@ -1,3 +1,5 @@
 *.merlin
 _build
 *.log
+obj*/
+results/
