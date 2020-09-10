@@ -1,0 +1,17 @@
+(library
+   (name cpuid)
+   (modules cpuid)
+   (ocamlopt_flags (:standard -S))
+   (libraries base)
+   (c_names cpuid)
+   (c_flags
+      (-mlzcnt -mpopcnt
+       -save-temps -O2 -std=gnu99 -O2 -fno-strict-aliasing -fwrapv
+                            -fno-builtin-memcmp -Wall -fno-tree-vrp )
+   )
+)
+
+  (executable
+     (name main)
+     (modules main)
+     (libraries cpuid))
